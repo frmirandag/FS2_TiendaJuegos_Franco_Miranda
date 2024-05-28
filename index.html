@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <title>Tienda SuperGamer FS2</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="#">Tienda SuperGamer FS2</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a onclick="mostrar('home_div')" class="nav-link" href="#">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a onclick="mostrar('products_div')" class="nav-link" href="#">Productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a onclick="mostrar('contact_div')" class="nav-link" href="#">Contacto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a onclick="mostrar('register_div')" class="nav-link" href="#">Registro</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <article id="home_div">
+            <div>
+                <h1 class="display-4 text-center">Bienvenido a La Pagina Web de Juegos más popular de Chile</h1>
+                <p class="lead text-center">¡Nos alegra mucho tenerte aquí!</p>
+            </div>
+        </article>
+        
+        <article id="products_div" style="display: none;">
+            <h2 class="text-center">Productos</h2>
+            <div class="product-gallery">
+                <div class="product-item">
+                    <img src="assets/img/TG1061356_1.webp" alt="Producto 1">
+                    <h3>Producto 1</h3>
+                    <p>Descripción del producto 1.</p>
+                    <button>Comprar</button>
+                </div>
+                <div class="product-item">
+                    <img src="assets/img/TG1061356_2.webp" alt="Producto 2">
+                    <h3>Producto 2</h3>
+                    <p>Descripción del producto 2.</p>
+                    <button>Comprar</button>
+                </div>
+                <div class="product-item">
+                    <img src="assets/img/TG1061356_3.webp" alt="Producto 3">
+                    <h3>Producto 3</h3>
+                    <p>Descripción del producto 3.</p>
+                    <button>Comprar</button>
+                </div>
+                <div class="product-item">
+                    <img src="assets/img/TG1061356_4.webp" alt="Producto 4">
+                    <h3>Producto 4</h3>
+                    <p>Descripción del producto 4.</p>
+                    <button>Comprar</button>
+                </div>
+            </div>
+        </article>
+        
+        <article id="contact_div" style="display: none;">
+            <h2 class="text-center">Contáctanos</h2>
+            <div class="container contact-form">
+                <h2 class="text-center">Formulario de Contacto</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="asunto">Asunto</label>
+                        <input type="text" class="form-control" id="asunto" name="asunto" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea class="form-control" id="mensaje" name="mensaje" rows="5" required></textarea>
+                    </div>
+                    <button onclick="enviarFormulario()" type="button" class="btn btn-primary">Enviar</button>
+                </form>
+            </div>
+        </article>
+
+        <article id="register_div" style="display: none;">
+            <h2 class="text-center">Registro</h2>
+            <div class="container">
+                <form id="registro">
+                    <div class="form-group">
+                        <label for="nombre_completo">Nombre Completo:</label>
+                        <input type="text" class="form-control" id="nombre_completo" name="nombre_completo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nombre_usuario">Nombre de Usuario:</label>
+                        <input type="text" class="form-control" id="nombre_usuario" name="nombre_usuario" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="correo">Correo Electrónico:</label>
+                        <input type="email" class="form-control" id="correo" name="correo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="clave">Contraseña:</label>
+                        <input type="password" class="form-control" id="clave" name="clave" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmar_clave">Repetir Contraseña:</label>
+                        <input type="password" class="form-control" id="confirmar_clave" name="confirmar_clave" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+                        <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="direccion">Dirección de Despacho (opcional):</label>
+                        <input type="text" class="form-control" id="direccion" name="direccion">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                    <button type="reset" class="btn btn-secondary">Limpiar</button>
+                </form>
+            </div>
+        </article>
+        
+        <section id="features" class="py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <i class="fas fa-gamepad fa-3x mb-3"></i>
+                                <h3 class="card-title">Gran Selección de Juegos</h3>
+                                <p class="card-text">Explora nuestra amplia colección de juegos de mesa de alta calidad.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <i class="fas fa-users fa-3x mb-3"></i>
+                                <h3 class="card-title">Comunidad Activa</h3>
+                                <p class="card-text">Únete a nuestra comunidad de jugadores y comparte tu pasión por los juegos de mesa.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <i class="fas fa-shipping-fast fa-3x mb-3"></i>
+                                <h3 class="card-title">Envío Rápido</h3>
+                                <p class="card-text">Realizamos envíos rápidos y seguros para que puedas disfrutar de tus juegos cuanto antes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="testimonials" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-5">Testimonios de Clientes</h2>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="card-text">¡Excelente servicio! Los juegos llegaron en perfectas condiciones y antes de lo esperado.</p>
+                                <p class="text-muted">- Arturo Mistral</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="card-text">Me encanta la variedad de juegos disponibles. Siempre encuentro algo nuevo para jugar.</p>
+                                <p class="text-muted">- María Juanita</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="card-text">Envíos rápidos al Sur de chile y la atención al cliente fue excepcional. ¡Volveré a comprar seguro!</p>
+                                <p class="text-muted">- Elsa Pato</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p>Derechos de autor &copy; 2024 SuperGamer FS2</p>
+        </div>
+    </footer>
+    
+    <div id="loading">
+        <div class="spinner"></div>
+    </div>
+    
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="assets/js/index.js"></script>
+    <script>
+        function mostrar(id) {
+            document.getElementById('home_div').style.display = 'none';
+            document.getElementById('products_div').style.display = 'none';
+            document.getElementById('contact_div').style.display = 'none';
+            document.getElementById('register_div').style.display = 'none';
+            document.getElementById(id).style.display = 'block';
+        }
+
+        document.getElementById('registro').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            let nombreCompleto = document.getElementById('nombre_completo').value;
+            let nombreUsuario = document.getElementById('nombre_usuario').value;
+            let correo = document.getElementById('correo').value;
+            let clave = document.getElementById('clave').value;
+            let confirmarClave = document.getElementById('confirmar_clave').value;
+            let fechaNacimiento = new Date(document.getElementById('fecha_nacimiento').value);
+            
+            if (!nombreCompleto || !nombreUsuario || !correo || !clave || !confirmarClave || !fechaNacimiento) {
+                alert('Todos los campos obligatorios deben ser completados.');
+                return;
+            }
+            
+            let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(correo)) {
+                alert('El correo electrónico no es válido.');
+                return;
+            }
+            
+            if (clave !== confirmarClave) {
+                alert('Las contraseñas no coinciden.');
+                return;
+            }
+            
+            let passwordRegex = /^(?=.*\d)(?=.*[A-Z]).{6,18}$/;
+            if (!passwordRegex.test(clave)) {
+                alert('La contraseña debe contener al menos un número, una letra en mayúscula y tener entre 6 y 18 caracteres.');
+                return;
+            }
+            
+            let today = new Date();
+            let age = today.getFullYear() - fechaNacimiento.getFullYear();
+            let monthDifference = today.getMonth() - fechaNacimiento.getMonth();
+            if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < fechaNacimiento.getDate())) {
+                age--;
+            }
+            
+            if (age < 13) {
+                alert('Debes tener al menos 13 años para registrarte.');
+                return;
+            }
+            
+            alert('Formulario enviado correctamente.');
+            // Aquí se puede agregar el código para enviar el formulario al servidor
+        });
+    </script>
+</body>
+</html>
