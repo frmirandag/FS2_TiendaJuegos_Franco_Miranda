@@ -26,8 +26,14 @@
                         <li class="nav-item">
                             <a onclick="mostrar('contact_div')" class="nav-link" href="#">Contacto</a>
                         </li>
+                        <li class="nav-item" id="admin-link" style="display: none;">
+                            <a onclick="mostrar('admin_div')" class="nav-link" href="#">Admin</a>
+                        </li>
                         <li class="nav-item">
-                            <a onclick="mostrar('register_div')" class="nav-link" href="#">Registro</a>
+                            <a onclick="mostrar('cart_div')" class="nav-link" href="#">Carrito</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="logout" class="nav-link" href="#">Cerrar Sesión</a>
                         </li>
                     </ul>
                 </div>
@@ -37,11 +43,13 @@
     
     <main>
         <article id="home_div">
-            <div>
-                <h1 class="display-4 text-center">Bienvenido a La Pagina Web de Juegos más popular de Chile</h1>
+            <div class="center-content">
+                <h1 class="display-4 text-center">Bienvenido a Super Gamer, donde la diversión cobra vida!</h1>
                 <p class="lead text-center">¡Nos alegra mucho tenerte aquí!</p>
+                <img src="assets/img/TG1061356_0.webp" alt="Imagen tienda" class="centered-image">
             </div>
         </article>
+    </main>
         
         <article id="products_div" style="display: none;">
             <h2 class="text-center">Productos</h2>
@@ -49,26 +57,26 @@
                 <div class="product-item">
                     <img src="assets/img/TG1061356_1.webp" alt="Producto 1">
                     <h3>Producto 1</h3>
-                    <p>Descripción del producto 1.</p>
-                    <button>Comprar</button>
+                    <p>Consolas de Videojuegos SuperGamer Terrible Brigidas.</p>
+                    <button onclick="addToCart(1)" class="btn btn-primary">Añadir al carrito</button>
                 </div>
                 <div class="product-item">
                     <img src="assets/img/TG1061356_2.webp" alt="Producto 2">
                     <h3>Producto 2</h3>
-                    <p>Descripción del producto 2.</p>
-                    <button>Comprar</button>
+                    <p>VideoJuegos Nuevos SuperGamer Pro.</p>
+                    <button onclick="addToCart(2)" class="btn btn-primary">Añadir al carrito</button>
                 </div>
                 <div class="product-item">
                     <img src="assets/img/TG1061356_3.webp" alt="Producto 3">
                     <h3>Producto 3</h3>
-                    <p>Descripción del producto 3.</p>
-                    <button>Comprar</button>
+                    <p>Videojuegos y Accesorios Terrible Poco Usados.</p>
+                    <button onclick="addToCart(3)" class="btn btn-primary">Añadir al carrito</button>
                 </div>
                 <div class="product-item">
                     <img src="assets/img/TG1061356_4.webp" alt="Producto 4">
                     <h3>Producto 4</h3>
-                    <p>Descripción del producto 4.</p>
-                    <button>Comprar</button>
+                    <p>Accesorios SuperGamer Modernos.</p>
+                    <button onclick="addToCart(4)" class="btn btn-primary">Añadir al carrito</button>
                 </div>
             </div>
         </article>
@@ -116,86 +124,71 @@
                         <input type="email" class="form-control" id="correo" name="correo" required>
                     </div>
                     <div class="form-group">
-                        <label for="clave">Contraseña:</label>
-                        <input type="password" class="form-control" id="clave" name="clave" required>
+                        <label for="contraseña">Contraseña:</label>
+                        <input type="password" class="form-control" id="contraseña" name="contraseña" required>
                     </div>
-                    <div class="form-group">
-                        <label for="confirmar_clave">Repetir Contraseña:</label>
-                        <input type="password" class="form-control" id="confirmar_clave" name="confirmar_clave" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
-                        <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="direccion">Dirección de Despacho (opcional):</label>
-                        <input type="text" class="form-control" id="direccion" name="direccion">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Enviar</button>
-                    <button type="reset" class="btn btn-secondary">Limpiar</button>
+                    <button type="submit" class="btn btn-primary">Registrar</button>
                 </form>
             </div>
         </article>
-        
-        <section id="features" class="py-5 bg-light">
+
+         <article id="cart_div" style="display: none;">
+        <h2 class="text-center">Carrito de Compras</h2>
+        <div class="container">
+            <ul id="cart-items" class="list-group list-group-flush mb-3"></ul>
+            <button onclick="checkout()" class="btn btn-success btn-block">Proceder al Pago</button>
+        </div>
+    </article>
+
+        <article id="admin_div" style="display: none;">
+            <h2 class="text-center">Administración de Productos</h2>
             <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="card text-center">
-                            <div class="card-body">
-                                <i class="fas fa-gamepad fa-3x mb-3"></i>
-                                <h3 class="card-title">Gran Selección de Juegos</h3>
-                                <p class="card-text">Explora nuestra amplia colección de juegos de mesa de alta calidad.</p>
-                            </div>
-                        </div>
+                <form id="product-form">
+                    <div class="form-group">
+                        <label for="product-name">Nombre del Producto:</label>
+                        <input type="text" class="form-control" id="product-name" name="product-name" required>
                     </div>
-                    <div class="col-md-4">
-                        <div class="card text-center">
-                            <div class="card-body">
-                                <i class="fas fa-users fa-3x mb-3"></i>
-                                <h3 class="card-title">Comunidad Activa</h3>
-                                <p class="card-text">Únete a nuestra comunidad de jugadores y comparte tu pasión por los juegos de mesa.</p>
-                            </div>
-                        </div>
+                    <div class="form-group">
+                        <label for="product-price">Precio del Producto:</label>
+                        <input type="number" class="form-control" id="product-price" name="product-price" required>
                     </div>
-                    <div class="col-md-4">
-                        <div class="card text-center">
-                            <div class="card-body">
-                                <i class="fas fa-shipping-fast fa-3x mb-3"></i>
-                                <h3 class="card-title">Envío Rápido</h3>
-                                <p class="card-text">Realizamos envíos rápidos y seguros para que puedas disfrutar de tus juegos cuanto antes.</p>
-                            </div>
-                        </div>
+                    <div class="form-group">
+                        <label for="product-stock">Stock del Producto:</label>
+                        <input type="number" class="form-control" id="product-stock" name="product-stock" required>
                     </div>
-                </div>
+                    <button type="submit" class="btn btn-primary">Agregar Producto</button>
+                </form>
+                <ul id="product-list"></ul>
             </div>
-        </section>
+        </article>
         
-        <section id="testimonials" class="py-5">
+        <section class="py-5 bg-light text-center">
             <div class="container">
-                <h2 class="text-center mb-5">Testimonios de Clientes</h2>
                 <div class="row">
-                    <div class="col-md-4 mb-4">
-                        <div class="card">
+                    <div class="col-md-4">
+                        <div class="card text-center">
                             <div class="card-body">
-                                <p class="card-text">¡Excelente servicio! Los juegos llegaron en perfectas condiciones y antes de lo esperado.</p>
-                                <p class="text-muted">- Arturo Mistral</p>
+                                <i class="fas fa-certificate fa-3x mb-3"></i>
+                                <h4 class="card-title">Calidad</h4>
+                                <p class="card-text">Productos gamers full calidad garantizados.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 mb-4">
-                        <div class="card">
+                    <div class="col-md-4">
+                        <div class="card text-center">
                             <div class="card-body">
-                                <p class="card-text">Me encanta la variedad de juegos disponibles. Siempre encuentro algo nuevo para jugar.</p>
-                                <p class="text-muted">- María Juanita</p>
+                                <i class="fas fa-truck fa-3x mb-3"></i>
+                                <h4 class="card-title">Envíos Rápidos</h4>
+                                <p class="card-text">Recibe tu compra en tiempo récords.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 mb-4">
-                        <div class="card">
+                    <div class="col-md-4">
+                        <div class="card text-center">
                             <div class="card-body">
-                                <p class="card-text">Envíos rápidos al Sur de chile y la atención al cliente fue excepcional. ¡Volveré a comprar seguro!</p>
-                                <p class="text-muted">- Elsa Pato</p>
+                                <i class="fas fa-headset fa-3x mb-3"></i>
+                                <h4 class="card-title">Soporte 24/7</h4>
+                                <p class="card-text">Atención al cliente en cualquier momento.</p>
                             </div>
                         </div>
                     </div>
@@ -203,78 +196,145 @@
             </div>
         </section>
     </main>
-    
-    <footer class="bg-dark text-white py-4">
-        <div class="container text-center">
-            <p>Derechos de autor &copy; 2024 SuperGamer FS2</p>
+
+    <footer class="bg-light text-center py-4">
+        <div class="container">
+            <p>&copy; 2024 Tienda SuperGamer FS2. Todos los derechos reservados.</p>
+            <ul class="list-inline mb-0">
+                <li class="list-inline-item"><a href="#" class="text-dark">Inicio</a></li>
+                <li class="list-inline-item"><a href="#" class="text-dark">Productos</a></li>
+                <li class="list-inline-item"><a href="#" class="text-dark">Contacto</a></li>
+                <li class="list-inline-item"><a href="#" class="text-dark">Términos de servicio</a></li>
+                <li class="list-inline-item"><a href="#" class="text-dark">Política de privacidad</a></li>
+            </ul>
         </div>
     </footer>
-    
-    <div id="loading">
-        <div class="spinner"></div>
-    </div>
-    
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="assets/js/index.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script>
-        function mostrar(id) {
-            document.getElementById('home_div').style.display = 'none';
-            document.getElementById('products_div').style.display = 'none';
-            document.getElementById('contact_div').style.display = 'none';
-            document.getElementById('register_div').style.display = 'none';
-            document.getElementById(id).style.display = 'block';
+        const products = [
+            { id: 1, name: "Producto 1", price: 1000000, stock: 20 },
+            { id: 2, name: "Producto 2", price: 20000, stock: 10 },
+            { id: 3, name: "Producto 3", price: 3000, stock: 10 },
+            { id: 4, name: "Producto 4", price: 40000, stock: 10 }
+        ];
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        updateCartUI();
+
+        function mostrar(seccion) {
+            const secciones = ['home_div', 'products_div', 'contact_div', 'register_div', 'cart_div', 'admin_div'];
+            secciones.forEach(s => document.getElementById(s).style.display = 'none');
+            document.getElementById(seccion).style.display = 'block';
+        }
+
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            cart.push(product);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const cartItems = document.getElementById('cart-items');
+            cartItems.innerHTML = '';
+            cart.forEach((item, index) => {
+                const li = document.createElement('li');
+                li.textContent = `${item.name} - $${item.price}`;
+                const removeBtn = document.createElement('button');
+                removeBtn.textContent = 'Eliminar';
+                removeBtn.classList.add('btn', 'btn-danger', 'btn-sm', 'ml-2');
+                removeBtn.onclick = () => removeFromCart(index);
+                li.appendChild(removeBtn);
+                cartItems.appendChild(li);
+            });
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartUI();
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert('El carrito está vacío');
+                return;
+            }
+            alert('Procediendo al pago...');
+        }
+
+        document.getElementById('product-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('product-name').value;
+            const price = document.getElementById('product-price').value;
+            const stock = document.getElementById('product-stock').value;
+            const product = { id: products.length + 1, name, price, stock };
+            products.push(product);
+            updateProductListUI();
+        });
+
+        function updateProductListUI() {
+            const productList = document.getElementById('product-list');
+            productList.innerHTML = '';
+            products.forEach((product, index) => {
+                const li = document.createElement('li');
+                li.textContent = `${product.name} - $${product.price} - Stock: ${product.stock}`;
+                const editBtn = document.createElement('button');
+                editBtn.textContent = 'Editar';
+                editBtn.classList.add('btn', 'btn-primary', 'btn-sm', 'ml-2');
+                editBtn.onclick = () => editProduct(index);
+                li.appendChild(editBtn);
+                productList.appendChild(li);
+            });
+        }
+
+        function editProduct(index) {
+            const product = products[index];
+            document.getElementById('product-name').value = product.name;
+            document.getElementById('product-price').value = product.price;
+            document.getElementById('product-stock').value = product.stock;
+            document.getElementById('product-form').onsubmit = function(event) {
+                event.preventDefault();
+                product.name = document.getElementById('product-name').value;
+                product.price = document.getElementById('product-price').value;
+                product.stock = document.getElementById('product-stock').value;
+                updateProductListUI();
+                this.onsubmit = null;
+            };
         }
 
         document.getElementById('registro').addEventListener('submit', function(event) {
             event.preventDefault();
-            
-            let nombreCompleto = document.getElementById('nombre_completo').value;
-            let nombreUsuario = document.getElementById('nombre_usuario').value;
-            let correo = document.getElementById('correo').value;
-            let clave = document.getElementById('clave').value;
-            let confirmarClave = document.getElementById('confirmar_clave').value;
-            let fechaNacimiento = new Date(document.getElementById('fecha_nacimiento').value);
-            
-            if (!nombreCompleto || !nombreUsuario || !correo || !clave || !confirmarClave || !fechaNacimiento) {
-                alert('Todos los campos obligatorios deben ser completados.');
-                return;
-            }
-            
-            let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(correo)) {
-                alert('El correo electrónico no es válido.');
-                return;
-            }
-            
-            if (clave !== confirmarClave) {
-                alert('Las contraseñas no coinciden.');
-                return;
-            }
-            
-            let passwordRegex = /^(?=.*\d)(?=.*[A-Z]).{6,18}$/;
-            if (!passwordRegex.test(clave)) {
-                alert('La contraseña debe contener al menos un número, una letra en mayúscula y tener entre 6 y 18 caracteres.');
-                return;
-            }
-            
-            let today = new Date();
-            let age = today.getFullYear() - fechaNacimiento.getFullYear();
-            let monthDifference = today.getMonth() - fechaNacimiento.getMonth();
-            if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < fechaNacimiento.getDate())) {
-                age--;
-            }
-            
-            if (age < 13) {
-                alert('Debes tener al menos 13 años para registrarte.');
-                return;
-            }
-            
-            alert('Formulario enviado correctamente.');
-            // Aquí se puede agregar el código para enviar el formulario al servidor
+            // Aquí puedes añadir el código para procesar el formulario de registro.
+            alert('Registro completado');
         });
+
+        function enviarFormulario() {
+            // Aquí puedes añadir el código para procesar el formulario de contacto.
+            alert('Formulario enviado');
+        }
+
+        document.getElementById('logout').addEventListener('click', function() {
+            localStorage.removeItem('loggedInUser');
+            window.location.href = 'login.html';
+        });
+
+        function checkLogin() {
+            const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+            if (!loggedInUser) {
+                window.location.href = 'login.html';
+            } else {
+                if (loggedInUser.role === 'admin') {
+                    document.getElementById('admin-link').style.display = 'block';
+                }
+            }
+        }
+
+        checkLogin();
     </script>
 </body>
 </html>

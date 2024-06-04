@@ -1,4 +1,15 @@
 /* Estilos generales para HTML y Body */
+.center-content {
+    text-align: center;
+}
+
+.centered-image {
+    display: block;
+    margin: 0 auto;
+    max-width: 50%; /* Adjust the percentage to control the size */
+}
+
+
 html, body {
     height: 100%; /* Asegura que el contenedor ocupe toda la altura */
     margin: 0; /* Elimina márgenes predeterminados */
@@ -15,7 +26,7 @@ body {
 
 /* Estilos para el encabezado */
 header {
-    background-color: #FF5733; /* Fondo de color naranja */
+    background-color: #539fa2; /* Fondo de color1 */
     color: white; /* Texto en blanco */
     padding: 10px 0; /* Espaciado interno */
     text-align: center; /* Centra el texto */
@@ -26,7 +37,7 @@ header {
 
 /* Estilos para la navegación */
 nav {
-    background-color: #FF5733; /* Fondo de color naranja */
+    background-color: #539fa2; /* Fondo de color1 */
 }
 nav ul {
     list-style: none; /* Elimina el estilo de lista */
@@ -45,7 +56,7 @@ nav ul li a {
     display: block; /* Hace que los enlaces se comporten como bloques */
 }
 nav ul li a:hover {
-    background-color: #C70039; /* Fondo en rojo oscuro al pasar el cursor */
+    background-color: #72b1a4; /* Fondo en color2 al pasar el cursor */
     border-radius: 5px; /* Esquinas redondeadas */
 }
 
@@ -53,7 +64,7 @@ nav ul li a:hover {
 main {
     flex: 1; /* Ocupa el espacio restante */
     padding: 20px; /* Espaciado interno */
-    background-color: #FFC300; /* Fondo amarillo */
+    background-color: #abccb1; /* Fondo color3 */
 }
 
 /* Estilos para el pie de página */
@@ -65,7 +76,7 @@ footer {
 
 /* Estilo de la página de inicio */
 #home_div {
-    background-color: #f5f5f5; /* Fondo gris claro */
+    background-color: #72b1a4; /* Fondo color2 */
     padding: 40px; /* Espaciado interno */
     border-radius: 10px; /* Esquinas redondeadas */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra ligera */
@@ -73,7 +84,7 @@ footer {
 #home_div h1 {
     font-size: 48px; /* Tamaño de fuente grande */
     margin-bottom: 20px; /* Espaciado inferior */
-    color: #FF5733; /* Color de texto naranja */
+    color: #539fa2; /* Color de texto color1 */
 }
 #home_div p {
     font-size: 24px; /* Tamaño de fuente mediano */
@@ -97,7 +108,7 @@ footer {
 }
 .spinner {
     border: 8px solid #f3f3f3; /* Borde gris claro */
-    border-top: 8px solid #FF5733; /* Borde superior naranja */
+    border-top: 8px solid #539fa2; /* Borde superior color1 */
     border-radius: 50%; /* Forma circular */
     width: 60px; /* Ancho del spinner */
     height: 60px; /* Altura del spinner */
@@ -133,7 +144,7 @@ footer {
 .product-item h3 {
     font-size: 18px; /* Tamaño de fuente */
     margin: 8px 0; /* Márgenes verticales */
-    color: #FF5733; /* Color de texto naranja */
+    color: #539fa2; /* Color de texto color1 */
 }
 .product-item p {
     font-size: 14px; /* Tamaño de fuente */
@@ -142,14 +153,14 @@ footer {
 .product-item button {
     padding: 8px 16px; /* Espaciado interno */
     margin-top: 8px; /* Margen superior */
-    background-color: #FF5733; /* Fondo naranja */
+    background-color: #539fa2; /* Fondo color1 */
     color: #fff; /* Texto blanco */
     border: none; /* Sin borde */
     border-radius: 4px; /* Esquinas redondeadas */
     cursor: pointer; /* Cursor de puntero */
 }
 .product-item button:hover {
-    background-color: #C70039; /* Fondo rojo oscuro al pasar el cursor */
+    background-color: #c4dbb4; /* Fondo color4 al pasar el cursor */
 }
 
 /* Estilo del formulario de contacto */
@@ -166,7 +177,7 @@ footer {
     margin-bottom: 16px; /* Espaciado inferior */
     font-size: 24px; /* Tamaño de fuente */
     text-align: center; /* Centra el texto */
-    color: #FF5733; /* Color de texto naranja */
+    color: #539fa2; /* Color de texto color1 */
 }
 .contact-form label {
     display: block; /* Bloque de etiqueta */
@@ -185,14 +196,14 @@ footer {
 .contact-form button {
     width: 100%; /* Ancho completo */
     padding: 10px; /* Espaciado interno */
-    background-color: #FF5733; /* Fondo naranja */
+    background-color: #539fa2; /* Fondo color1 */
     color: #fff; /* Texto blanco */
     border: none; /* Sin borde */
     border-radius: 4px; /* Esquinas redondeadas */
     cursor: pointer; /* Cursor de puntero */
 }
 .contact-form button:hover {
-    background-color: #C70039; /* Fondo rojo oscuro al pasar el cursor */
+    background-color: #c4dbb4; /* Fondo color4 al pasar el cursor */
 }
 
 /* Estilo del formulario de registro */
